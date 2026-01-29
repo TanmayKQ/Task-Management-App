@@ -5,13 +5,12 @@ A full-stack task management web application built with Next.js, TypeScript, Tai
 ## Tech Stack
 
 - **Frontend Framework**: Next.js 15 (App Router)
-- **Language**: TypeScript (Strict Mode)
+- **Language**: TypeScript
 - **Styling**: Tailwind CSS
 - **Backend/Database**: Supabase
   - Authentication: Supabase Auth
   - Database: PostgreSQL
-  - Real-time: Supabase Realtime (available for future enhancements)
-- **Deployment**: Vercel-ready
+- **Deployment**: Vercel
 
 ## Features
 
@@ -247,30 +246,15 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 2. You'll be automatically logged in and redirected to the dashboard
 3. Create a few tasks
 4. Test filtering and sorting
-5. Edit and delete tasks
+5. Edit and delete tasks 
 6. Log out and log back in to verify session persistence
 
-### 7. Build for Production
+### 7. Build for Production 
 
 ```bash
 npm run build
 npm run start
 ```
-
-## Deployment to Vercel
-
-1. Push your code to GitHub
-2. Go to [vercel.com](https://vercel.com) and import your repository
-3. Add environment variables in Vercel project settings:
-   - `NEXT_PUBLIC_SUPABASE_URL`
-   - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
-4. Deploy!
-
-Vercel will automatically:
-- Detect Next.js
-- Install dependencies
-- Build the project
-- Deploy to a global CDN
 
 ## Project Structure
 
@@ -314,28 +298,16 @@ task-manager-supabase/
 
 2. **Password Requirements**: Using Supabase default password requirements (minimum 6 characters). Can be customized in Supabase Auth settings.
 
-3. **Time Zone**: Due dates are stored as DATE type without time. All times are handled in the user's local timezone.
+3. **No Pagination**: Current implementation loads all tasks. For production with 1000+ tasks per user, implement pagination.
 
-4. **No Pagination**: Current implementation loads all tasks. For production with 1000+ tasks per user, implement pagination.
+4. **No Real-time Updates**: Tasks update on page refresh or after mutations. Supabase Realtime can be added for live updates.
 
-5. **No Real-time Updates**: Tasks update on page refresh or after mutations. Supabase Realtime can be added for live updates.
+5. **Single User Sessions**: One session per user. Supabase supports multiple sessions if needed.
 
-6. **Single User Sessions**: One session per user. Supabase supports multiple sessions if needed.
+6. **Error Handling**: Errors are displayed to users. In production, consider logging errors to a service like Sentry.
 
-7. **Error Handling**: Errors are displayed to users. In production, consider logging errors to a service like Sentry.
+7. **No Task Sharing**: Tasks are private to each user. Sharing would require additional tables and RLS policies.
 
-8. **No Task Sharing**: Tasks are private to each user. Sharing would require additional tables and RLS policies.
-
-## Code Quality
-
-- ✅ TypeScript strict mode enabled
-- ✅ No `any` types used
-- ✅ Proper error handling with try-catch
-- ✅ Clean async/await patterns
-- ✅ Descriptive function and variable names
-- ✅ No linters configured (as per requirements)
-- ✅ No TODOs or incomplete features
-- ✅ All features fully implemented
 
 ## Future Enhancements for Scale
 
