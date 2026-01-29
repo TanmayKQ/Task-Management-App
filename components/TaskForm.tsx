@@ -49,15 +49,16 @@ export default function TaskForm() {
         <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.15 }}
             className="bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden"
         >
             {/* Header */}
             <button
                 onClick={() => setIsExpanded(!isExpanded)}
-                className="w-full px-6 py-4 flex items-center justify-between hover:bg-gray-50 transition-colors"
+                className="w-full px-6 py-4 flex items-center justify-between hover:bg-gray-50 transition-colors duration-200"
             >
                 <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
+                    <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
                         <svg
                             className="w-5 h-5 text-white"
                             fill="none"
@@ -83,7 +84,7 @@ export default function TaskForm() {
                 </div>
                 <motion.svg
                     animate={{ rotate: isExpanded ? 180 : 0 }}
-                    transition={{ duration: 0.2 }}
+                    transition={{ duration: 0.2, ease: "easeInOut" }}
                     className="w-5 h-5 text-gray-400"
                     fill="none"
                     stroke="currentColor"
@@ -99,13 +100,14 @@ export default function TaskForm() {
             </button>
 
             {/* Form */}
-            <AnimatePresence>
+            <AnimatePresence initial={false}>
                 {isExpanded && (
                     <motion.div
                         initial={{ height: 0, opacity: 0 }}
                         animate={{ height: "auto", opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.3 }}
+                        transition={{ duration: 0.2, ease: "easeInOut" }}
+                        style={{ overflow: "hidden" }}
                     >
                         <form onSubmit={handleSubmit} className="px-6 pb-6 space-y-4">
                             {error && (
@@ -187,9 +189,9 @@ export default function TaskForm() {
                                         onChange={(e) => setStatus(e.target.value as TaskStatus)}
                                         className="w-full px-4 py-2.5 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-white"
                                     >
-                                        <option value="todo">⏳ To Do</option>
-                                        <option value="in_progress">🔄 In Progress</option>
-                                        <option value="done">✅ Done</option>
+                                        <option value="todo">To Do</option>
+                                        <option value="in_progress">In Progress</option>
+                                        <option value="done">Done</option>
                                     </select>
                                 </div>
                             </div>

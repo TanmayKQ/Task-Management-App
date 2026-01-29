@@ -66,33 +66,16 @@ export default async function DashboardPage({
     const doneTasks = tasks?.filter((t) => t.status === "done").length || 0;
 
     return (
-        <div className="min-h-screen bg-gradient-mesh">
+        <div className="min-h-screen bg-gray-50">
             {/* Header */}
-            <header className="bg-white border-b border-gray-200 shadow-sm sticky top-0 z-10 backdrop-blur-lg bg-white/80">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+            <header className="bg-white border-b border-gray-200 shadow-sm sticky top-0 z-10">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
                     <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-4">
-                            <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl flex items-center justify-center shadow-lg">
-                                <svg
-                                    className="w-6 h-6 text-white"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    viewBox="0 0 24 24"
-                                >
-                                    <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        strokeWidth={2}
-                                        d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
-                                    />
-                                </svg>
-                            </div>
-                            <div>
-                                <h1 className="text-2xl font-bold text-gradient">
-                                    Task Manager
-                                </h1>
-                                <p className="text-sm text-gray-600">Welcome, {user.email}</p>
-                            </div>
+                        <div>
+                            <h1 className="text-4xl font-bold text-gray-900">
+                                Task Manager
+                            </h1>
+                            <p className="text-sm text-gray-600 mt-1">Welcome, {user.email}</p>
                         </div>
                         <LogoutButton />
                     </div>

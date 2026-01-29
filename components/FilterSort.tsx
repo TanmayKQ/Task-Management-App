@@ -23,16 +23,17 @@ export default function FilterSort() {
     };
 
     const filters = [
-        { value: "all", label: "All Tasks", icon: "📋" },
-        { value: "todo", label: "To Do", icon: "⏳" },
-        { value: "in_progress", label: "In Progress", icon: "🔄" },
-        { value: "done", label: "Done", icon: "✅" },
+        { value: "all", label: "All Tasks" },
+        { value: "todo", label: "To Do" },
+        { value: "in_progress", label: "In Progress" },
+        { value: "done", label: "Done" },
     ];
 
     return (
         <motion.div
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.15 }}
             className="bg-white p-6 rounded-xl shadow-md border border-gray-200"
         >
             <div className="flex flex-col lg:flex-row gap-6">
@@ -48,14 +49,13 @@ export default function FilterSort() {
                                 onClick={() => handleFilterChange(filter.value)}
                                 className={`
                   inline-flex items-center gap-2 px-4 py-2 rounded-lg font-medium text-sm
-                  transition-all duration-200
+                  transition-all duration-150
                   ${currentFilter === filter.value
-                                        ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-md scale-105"
+                                        ? "bg-blue-600 text-white shadow-md scale-105"
                                         : "bg-gray-100 text-gray-700 hover:bg-gray-200 hover:scale-105"
                                     }
                 `}
                             >
-                                <span>{filter.icon}</span>
                                 <span>{filter.label}</span>
                             </button>
                         ))}
@@ -77,8 +77,8 @@ export default function FilterSort() {
                             onChange={(e) => handleSortChange(e.target.value)}
                             className="w-full px-4 py-2.5 pr-10 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-white appearance-none cursor-pointer"
                         >
-                            <option value="asc">📅 Earliest First</option>
-                            <option value="desc">📅 Latest First</option>
+                            <option value="asc">Earliest First</option>
+                            <option value="desc">Latest First</option>
                         </select>
                         <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
                             <svg
